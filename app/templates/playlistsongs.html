@@ -1,0 +1,64 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+      <title>Project</title>
+    </head>
+    <body class="color_body">
+        <div class="navbar1">
+            <a href="{{ url_for('createparty') }}" style="float: left">Home</a>
+            <a href="{{ url_for('logout') }}" style="float: right">Logout</a>
+            <a href="{{ url_for('allreports') }}" style="float: right">All Reports</a>
+            <a href="{{ url_for('allplaylist') }}" style="float: right">View Playlists</a>
+            <a href="{{ url_for('createplaylist') }}" style="float: right">Create Playlist</a>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="new_playlist_songs">
+            <h2>Playlist {{playlist.playlist_name}}</h2>
+            <table class="add_songs_table2">
+            {%- for row in songs|batch(5, '&nbsp;') %}
+                <tr>
+                    {%- for column in row %}
+                        {% if column.song_id %}
+                            {% set testing1 = 'css/images/' ~ column.song_id ~ '.jpg' %}
+                            {% set another1 = testing1 %}
+                            <td class="table_item2">
+                                <div class="table2">
+                                    <img src="{{ url_for('static', filename=another1) }}" alt="Song Image" class="small_img">
+                                    <br>
+                                    <div class="song_name">{{ column.song_name }}</div>
+                                    <div class="artist_name1">{{ column.song_artist }}</div>
+                                    <form action="/deletesonginplaylist/{{playlist.playlist_id}}/{{column.song_id}}" method="post">
+                                    <button type="submit" class="btn btn-sm search-btn"><span class="glyphicon glyphicon-trash"></button>
+                                    </form>
+                                </div>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {%- endfor %}
+                </tr>
+            {%- endfor %}
+            </table>
+
+            <input class="btn btn-lg search-btn btn-space" type="button" onclick="location.href='/songlist/{{playlist.playlist_id}}';" value="Add More Songs" />
+            <input class="btn btn-lg search-btn btn-space" type="button" onclick="location.href='/deleteplaylist/{{playlist.playlist_id}}';" value="Delete Playlist" />
+            {% if party_present == 2 %}
+            <input class="btn btn-lg search-btn btn-space" type="button" onclick="location.href='/djhome/{{playlist.playlist_id}}';" value="Start Party" />
+            {% endif %}
+            <br>
+        </div>
+    </body>
+</html>

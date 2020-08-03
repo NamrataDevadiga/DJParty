@@ -1,0 +1,147 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+      <title>Project</title>
+    </head>
+    <body class="song_accepts_body">
+        <div class="navbar1">
+            <a href="{{ url_for('index') }}" style="float: left">HOME</a>
+            <a href="{{ url_for('logout') }}" style="float: right">LOGOUT</a>
+        </div>
+        <div class="index2_header">
+            <img src="{{ url_for('static', filename='css/images/index2.jpg') }}" alt="Placeholder">
+            <div class="search_songs2">
+                <h1>Search for a Song:</h1>
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.song_name.label }}<br>
+                        {{ form.song_name(size=32,class="form-control2") }}<br>
+                        {% for error in form.song_name.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                    <p>{{ form.submit(class_="btn btn-lg search-btn") }}</p>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div id="searchresult">
+            <div class="row">
+
+                <div class="col-md-3 side_bar">
+                    {% if requested_songs %}
+                    <br>
+                    <br>
+                    <h1>Requested Songs</h1>
+                    <br>
+                    <table class="report_table_4">
+                    {% for song in requested_songs %}
+                    <tr>
+                    {% set testing1 = 'css/images/' ~ song.song_id ~ '.jpg' %}
+                        {% set another1 = testing1 %}
+                    <td><img src="{{ url_for('static', filename=another1) }}" alt="Song Image" class="small_img"></td>
+                    <td class="td_report_3"> 
+                        <table>
+                            <tr>
+                                <td class="song_name1">{{ song.song_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="artist_name1"> {{ song.song_artist }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+                    {% else %}
+                    <h3> No previously requested songs </h3>
+                    {% endif %}
+                </div>
+                <div class="col-md-9">
+                        <div class="row">
+                            <br>
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            <div class="errors2">
+                                <ul class="error_msg2">
+                                {% for message in messages %}
+                                    <li class="error_text2">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% endwith %}
+                        </div>
+
+                        <div class="row searching">
+                            <br>
+                            <h1>Search Results</h1>
+                            <br>
+                            <table class="add_songs_table4">
+                            {%- for row in songs|batch(4, '&nbsp;') %}
+                                <tr>
+                                    {%- for column in row %}
+                                        {% if column.song_id %}
+                                            {% set testing1 = 'css/images/' ~ column.song_id ~ '.jpg' %}
+                                            {% set another1 = testing1 %}
+                                            <td class="table_item4">
+                                                <div>
+                                                    <img src="{{ url_for('static', filename=another1) }}" alt="Song Image">
+                                                    <br>
+                                                    <div class="song_name1">{{ column.song_name }}</div>
+                                                    <div class="artist_name1">{{ column.song_artist }}</div>
+                                                    <button class="btn search-btn1" type="button" onclick="window.location.href='{{ url_for('request', song_id=column.song_id) }}'"> <span class="glyphicon glyphicon-plus-sign"></span></button>
+                                                </div>
+                                            </td>
+                                        {% else %}
+                                            <td></td>
+                                        {% endif %}
+                                    {%- endfor %}
+                                </tr>
+                            {%- endfor %}
+                            </table>
+
+                        </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function(){
+                var songs=[];
+
+                function loadSongs(){
+                $.getJSON('/songautocomplete', function(data, status, xhr){
+                    for (var i = 0; i < data.length; i++ ) {
+                        songs.push(data[i].song_name);
+                    }
+                });
+                };
+
+                loadSongs();
+
+                $('#song_name').autocomplete({
+                    
+                    source: function(request, response) {
+                        var results1 = $.ui.autocomplete.filter(songs, request.term);
+
+                        response(results1.slice(0, 3));
+                    },
+                    messages: {
+                        noResults: '',
+                        results: function() {}
+                    }
+                });
+
+            }); 
+        </script>
+    </body>
+</html>

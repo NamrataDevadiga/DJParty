@@ -1,0 +1,49 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+      <title>Project</title>
+    </head>
+    <body class="song_accepts_body" style="background-image:url({{ url_for('static', filename='css/images/report_list.jpg') }}); background-repeat: no-repeat; background-attachment: fixed;">
+        <div class="navbar1">
+            <a href="{{ url_for('createparty') }}" style="float: left">Home</a>
+            <a href="{{ url_for('logout') }}" style="float: right">Logout</a>
+            <a href="{{ url_for('allreports') }}" style="float: right">All Reports</a>
+            <a href="{{ url_for('allplaylist') }}" style="float: right">View Playlists</a>
+            <a href="{{ url_for('createplaylist') }}" style="float: right">Create Playlist</a>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        
+        <div class="reports">
+            <h1>Previous Reports:</h1>
+            <table width="100%">
+                {%- for row in reports|batch(2, '&nbsp;') %}
+                <tr>
+                    {%- for column in row %}
+                        {% if column.party_id %}
+                            <td class="report_cell">
+                                <a href="/report/{{column.party_id}}/{{reports[column]}}">
+                                <div class="report_box">
+                                        {{ column.party_name }}
+                                </div>
+                                </a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {%- endfor %}
+                </tr>
+                {%- endfor %}
+            </table>
+        </div>
+	</body>
+</html>

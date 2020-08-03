@@ -1,0 +1,55 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+      <title>Project</title>
+    </head>
+    <body class="song_accepts_body">
+        <div class="navbar">
+	        <a href="{{ url_for('index') }}">HOME</a>
+	        <a href="{{ url_for('songrequests') }}">REQUESTED SONGS</a>
+	        <a href="{{ url_for('songaccepts') }}">ACCEPTED SONGS</a>
+	        <a href="{{ url_for('logout') }}">LOGOUT</a>
+        </div>
+        <img src="{{ url_for('static', filename='css/images/accepted_songs.jpg') }}" alt="Actor Image" class="header">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="errors">
+	        <ul class="error_msg">
+	            {% for message in messages %}
+	            <li class="error_text">{{ message }}</li>
+	            {% endfor %}
+	        </ul>
+    	</div>
+        {% endif %}
+        {% endwith %}
+
+     	{% if songs %}
+        <div class="song_accepts">
+			<h1>Requested Song List</h1>
+			<br>
+			<div class="accepts">
+			<ul class="accept_list">
+		        {% for song in songs %}
+		        {% set testing = 'css/images/' ~ song.song_id ~ '.jpg' %}
+				{% set another = testing %}
+				<li><img src="{{ url_for('static', filename=another) }}" alt="Song Image" class="icon"></li>
+		        <li>{{ song.song_name }}</li>
+		        <br>
+		        {% endfor %}
+		    </ul>
+			</div>
+		</div>
+
+
+		{% else %}
+		<div class="song_accepts">
+			<br>
+			<br>
+			<h1>No songs have been requested yet!</h1>
+		</div>
+		{% endif %}
+
+	</body>
+</html>

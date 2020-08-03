@@ -1,0 +1,154 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+      <title>Project</title>
+    </head>
+    <body class="color_body">
+        <div class="navbar1">
+            <a href="{{ url_for('createparty') }}" style="float: left">Home</a>
+            <a href="{{ url_for('logout') }}" style="float: right">Logout</a>
+            <a href="{{ url_for('allreports') }}" style="float: right">All Reports</a>
+            <a href="{{ url_for('allplaylist') }}" style="float: right">View Playlists</a>
+            <a href="{{ url_for('createplaylist') }}" style="float: right">Create Playlist</a>
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="report_body">
+        <div class="row report_header"><h1>Report of {{party.party_name}}</h1></div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="report_header">Accepted Song Requests:</h2>
+                <table class="report_table_2">
+                {% for key, value in accepted_requests.items() %}
+                <tr>
+                    {% set testing1 = 'css/images/' ~ key.song_id ~ '.jpg' %}
+                    {% set another1 = testing1 %}
+                    <td><img src="{{ url_for('static', filename=another1) }}" alt="Song Image" class="small_img"></td>
+                    <td class="td_report_3"> 
+                        <table>
+                            <tr>
+                                <td class="song_name">{{ key.song_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="artist_name"> {{ key.song_artist }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    {% if party.party_on == 0 %}
+                    <td class="td_report_2"> <button class="btn btn-sm search-btn2" type="button" onclick="window.location.href='{{ url_for('editplaylist',party_id=party.party_id,playlist_id=playlist.playlist_id,song_id=key.song_id) }}'"><span class="glyphicon glyphicon-plus-sign"></span></button> </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                </table>
+                <h2 class="report_header">Pending Song Requests:</h2>
+                <table class="report_table_2">
+                {% for k, v in pending_requests.items() %}
+                <tr>
+                    {% set testing2 = 'css/images/' ~ k.song_id ~ '.jpg' %}
+                    {% set another2 = testing2 %}
+                    <td><img src="{{ url_for('static', filename=another2) }}" alt="Song Image" class="small_img"></td>
+                    <td class="td_report_3"> 
+                         <table>
+                            <tr>
+                                <td class="song_name">{{ k.song_name }}</td>
+                            </tr>
+                            <tr>
+                                <td class="artist_name"> {{ k.song_artist }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    {% if party.party_on == 0 %}
+                    <td class="td_report_2"> <button class="btn btn-sm search-btn2" type="button" onclick="window.location.href='{{ url_for('editplaylist',party_id=party.party_id,playlist_id=playlist.playlist_id,song_id=k.song_id) }}'"><span class="glyphicon glyphicon-plus-sign"></span></button> </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                </table>
+                <br>
+                {% if party.party_on == 0 %}
+                <div>
+                <h2 class="report_header">Recommendations:</h2>
+                <table class="report_table_2">
+                {% for s in recommendations%}
+                <tr>
+                    {% set testing3 = 'css/images/' ~ s.song_id ~ '.jpg' %}
+                    {% set another3 = testing3 %}
+                    <td><img src="{{ url_for('static', filename=another3) }}" alt="Song Image" class="small_img"></td>
+                    <td class="td_report_3">
+                        <table>
+                            <tr>
+                                <td class="song_name">{{s.song_name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="artist_name">{{s.song_artist}}</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="td_report_2"><button class="btn btn-sm search-btn2" type="button" onclick="window.location.href='{{ url_for('editplaylist',party_id=party.party_id,playlist_id=playlist.playlist_id,song_id=s.song_id) }}'"><span class="glyphicon glyphicon-plus-sign"></span></button></td>
+                </tr>
+                {% endfor %}
+                </table>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <h2 class="report_header">The playlist used was {{playlist.playlist_name}}</h2>
+
+                <table class="report_table_1">
+                {%- for row in songs_in_playlist|batch(2, '&nbsp;') %}
+                <tr>
+                    {%- for column in row %}
+                        {% if column.song_id %}
+                            {% set testing4 = 'css/images/' ~ column.song_id ~ '.jpg' %}
+                            {% set another4 = testing4 %}
+                            <td style="height:80px" ><img src="{{ url_for('static', filename=another4) }}" alt="Song Image" class="small_img"></td>
+                            <td class="td_report_3">
+                            <table>
+                            <tr>
+                                <td class="song_name">{{column.song_name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="artist_name">{{column.song_artist}}</td>
+                            </tr>
+                            </table>
+                            </td>
+                            <td class="td_report_2"><button class="btn btn-sm search-btn2" type="button" onclick="window.location.href='{{ url_for('editplaylist2',party_id=party.party_id,playlist_id=playlist.playlist_id,song_id=column.song_id) }}'"><span class="glyphicon glyphicon-trash"></button> </td>
+                            <td class="blank_td"></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {%- endfor %}
+                </tr>
+                {%- endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <br>
+        </div>
+        {% if party.party_on == 0 %}
+        <div class="row report_header">
+            <input class="btn btn-lg search-btn2" type="button" onclick="location.href='/allreports';" value="Done Editing Report" />
+        </div>
+        {% else %}
+        <div class="row report_header">
+            <input class="btn btn-lg search-btn2" type="button" onclick="location.href='/createparty';" value="Back to party" />
+        </div>
+        {% endif %}
+        <div class="row">
+            <br>
+        </div>
+        </div>
+  </body>
+</html>

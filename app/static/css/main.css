@@ -1,0 +1,877 @@
+.body{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.color_body{
+  background-color: black;
+}
+
+.errors{
+	background-color: rgb(255,255,255,0.7);
+	font-size: 150%;
+  height: 35px;
+  color: black;
+  width: 600px;
+  position: absolute;
+  left: 425px;
+}
+
+.error_msg{
+	list-style-type: none;
+}
+
+.error_text{
+  text-align: center;
+}
+
+.errors2{
+  background-color: rgb(255,255,255,0.7);
+  font-size: 150%;
+  height: 35px;
+  color: black;
+  width: 950px;
+}
+
+.error_msg2{
+  list-style-type: none;
+}
+
+.error_text2{
+  text-align: center;
+}
+
+
+.login{
+	background-color: rgba(220, 220, 220,0.4);
+	width: 600px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: black;
+}
+
+.form_label{
+	font-size: medium;
+}
+
+.submit-btn{
+	background-color: black;
+	color: white;
+}
+
+.submit-btn:hover, .submit-btn:focus, .submit-btn:active {
+    color: black;
+    background-color: grey;
+}
+
+a.register_link:link {
+    color: black; 
+    text-decoration: underline;
+}
+
+a.register_link:visited {
+    color: black;
+    text-decoration: underline;
+}
+
+a.register_link:hover {
+    color: dimgrey;
+    text-decoration: underline;
+}
+
+a.register_link:active {
+    color: black;
+    text-decoration: underline;
+}
+
+.registration{
+	background-color: rgba(220, 220, 220,0.7);
+	width: 600px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: black;
+}
+
+.usertype{
+  list-style-type: none;
+  text-align: justify;
+  padding-left: 290px;
+  float: center;
+}
+
+.song_accepts_body{
+	background-color: black;
+	color: white;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: black;
+  text-align: center;
+  padding: 0px 0px;
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+}
+
+.navbar a {
+  font-size: 120%;
+  color: white;
+  text-align: center;
+  padding: 0px 0px;
+  margin: 0px;
+  width: 50px;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.navbar a:hover{
+  background-color: dimgrey;
+}
+
+.nav_element1{
+  float: left;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.nav_element2{
+  float: right;
+  padding-top: 10px;
+  padding-right: 15px;
+}
+
+.song_accepts{
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.accepts{
+	display: flex;
+  	justify-content: center;
+  	font-size: 120%;
+}
+
+.accept_list{
+	list-style-type: none;
+}
+
+.icon{
+	float: left;
+}
+
+.header{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search_songs{
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-color: rgba(220, 220, 220, 0.8);
+  width: 450px;
+  height: 250px;
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  color: black;
+}
+
+.search_songs2{
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-color: rgba(220, 220, 220, 0.8);
+  width: 1500px;
+  height: 220px;
+  position: absolute;
+  top: 50px;
+  color: black;
+}
+
+
+.search-btn{
+	background-color: black;
+	color: white;
+}
+
+.search-btn:hover, .search-btn:focus, .search-btn:active {
+    color: white;
+    background-color: grey;
+}
+
+.search-btn2{
+  background-color: black;
+  color: white;
+}
+
+.search-btn2:hover, .search-btn2:focus, .search-btn2:active {
+    color: grey;
+    background-color: white;
+}
+
+.search-btn1{
+  background-color: white;
+  color: black;
+}
+
+.search-btn1:hover, .search-btn1:focus, .search-btn1:active {
+    color: white;
+    background-color: grey;
+}
+
+
+.ui-autocomplete {
+    background: white;
+    border-radius: 0px;
+    border: 2px solid black;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    cursor: default;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: black;
+    padding-left: 0px;
+}
+
+.ui-menu .ui-menu-item{
+  height: 30px;
+  padding-left: 20px;
+}
+
+.ui-menu .ui-menu-item a {
+    color: black;
+    border-radius: 0px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-decoration: none;
+}
+.ui-menu .ui-menu-item:hover {
+    background: dimgrey;
+    color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+.ui-menu .ui-menu-item:active {
+    box-shadow: 0 0 30px #96f226;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: black;
+}
+
+ul.ui-autocomplete{
+	list-style: none;
+}
+
+.form-control{
+	color: black;
+	width: 50%;
+	margin-left: 25%;
+}
+
+.form-control{
+  color: black;
+  width: 30%;
+  margin-left: 25%;
+}
+
+.form-control1{
+  color: black;
+  width: 30%;
+}
+
+.form-control2{
+  color: black;
+  width: 30%;
+}
+
+.search_result{
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.results{
+  font-size: 120%;
+}
+
+.result_list{
+	list-style-type: none;
+}
+
+.navbar1 {
+  overflow: hidden;
+  background-color: black;
+  text-align: left;
+  margin: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+}
+
+.navbar1 a {
+  font-size: 120%;
+  color: white;
+  text-align: center;
+  padding: 15px 55px;
+  margin: 0px;
+  width: 230px;
+  text-decoration: none;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.navbar1 a:hover{
+  background-color: dimgrey;
+}
+
+.reports{
+	background-color: rgba(220, 220, 220,0.4);
+	width: 500px;
+	position: absolute;
+	top: 100px;
+	left: 150px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: black;
+  padding-bottom: 1em;
+}
+
+.reports h1{
+  text-align: center;
+}
+
+.all_report a{
+  color:black;
+  font-size: 120%;
+}
+
+.all_report a:hover{
+  color: white;
+  background-color: black;
+}
+
+.side_bar{
+  text-align: center;
+}
+
+.side_bar_list{
+  list-style-type: none;
+  text-align: left;
+}
+
+.side_bar_images{
+  width: 50px;
+  height: 50px;
+  padding-right: 15px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.item1 {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    height:300px;
+}
+
+.searching{
+  text-align: center;
+}
+
+.search_images{
+  width: 170px;
+  height: 170px;
+  padding: 10px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.caption {
+    display: block;
+    font-size: large;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.button {
+  font: "Trebuchet MS", Helvetica, sans-serif;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+
+.button:hover, .button:focus, .button:active {
+    color: white;
+    background-color: grey;
+}
+
+.partyover{
+  color:white; 
+  font-family: Trebuchet MS, Helvetica, sans-serif;
+}
+
+.over{
+  padding-left: 80px;
+  padding-top: 80px;
+}
+
+.over a{
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.create_new_party{
+  background-color: rgba(175, 175, 175,0.7);
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+}
+
+.choose_playlist_body{
+  background-color: rgba(220, 220, 220,0.6);
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  top: 200px;
+  left: 420px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+}
+
+.playlist-btn{
+  background-color: black;
+  color: white;
+  width: 250px;
+}
+
+.playlist-btn:hover, .playlist-btn:focus, .playlist-btn:active {
+    color: white;
+    background-color: grey;
+    width: 250px;
+}
+
+.dj_playlist_body{
+  background-color: rgba(220, 220, 220,0.6);
+  width: 400px;
+  padding-bottom: 15px;
+  position: absolute;
+  top: 100px;
+  left: 970px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  border-radius: 1em;
+}
+
+.dj_playlist_body h1{
+  text-align: center;
+}
+
+.djplaylist td{
+  padding: 15px;
+  text-align: left;
+}
+
+.djplaylist{
+  padding-left: 15px;
+}
+
+.dj_table{
+  padding-left: 40px;
+}
+
+.playlist-btn1{
+  background-color: black;
+  color: white;
+  width: 150px;
+}
+
+.playlist-btn1:hover, .playlist-btn1:focus, .playlist-btn1:active {
+    color: black;
+    background-color: white;
+    width: 150px;
+}
+
+
+.song_list{
+  background-color: rgba(220, 220, 220,0.7);
+  width: 600px;
+  position: absolute;
+  top: 100px;
+  left: 450px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+}
+
+.song_list1{
+  list-style-type: none;
+}
+
+.add_songs{
+  background-color: rgba(220, 220, 220,0.7);
+  width: 600px;
+  position: absolute;
+  top: 70px;
+  left: 400px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  padding-bottom: 15px;
+}
+
+.create_playlist{
+  background-color: rgba(192, 192, 192,0.7);
+  width: 600px;
+  position: absolute;
+  top: 150px;
+  left: 400px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  border: 1px solid black;
+}
+
+.playlists{
+  background-color: rgba(192, 192, 192,0.7);
+  width: 500px;
+  position: absolute;
+  top: 100px;
+  left: 450px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  border: 1px solid black;
+}
+
+.playlists h1{
+  text-align: center;
+}
+
+.all_playlist a{
+  color:black;
+  font-size: 120%;
+}
+
+.all_playlist a:hover{
+  color: white;
+  background-color: black;
+}
+
+.table_item{
+  text-align: center;
+  color: black;
+  padding-left: 50px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.table1{
+  padding-left: 35px;
+}
+
+.playlist_songs{
+  color: black;
+  background-color: rgba(192, 192, 192,0.7);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  width: 600px;
+  margin-left: 400px;
+  margin-top: 50px;
+}
+
+.table_item2{
+  text-align: center;
+  color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 20%;
+}
+
+.table_item4{
+  text-align: center;
+  color: black;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 20%;
+}
+
+.table2{
+  padding-left: 35px;
+}
+
+.add_songs2{
+  background-color: rgba(220, 220, 220,0.7);
+  width: 600px;
+  position: absolute;
+  top: 120px;
+  left: 400px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  padding-bottom: 15px;
+}
+
+.new_playlist_songs{
+  background-color: rgba(220, 220, 220,0.7);
+  width: 1350px;
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  padding-bottom: 15px;
+  border-radius: 1em;
+}
+
+
+.add_songs_table2{
+    width:100%;
+}
+
+.add_songs_table4{
+    width:100%;
+    margin-left: -10px;
+}
+
+
+.btn-space{
+  margin-right: 10px;
+}
+
+.report_body{
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 1350px;
+  position: absolute;
+  top: 6em;
+  left: 3em;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  background-color: grey;
+}
+
+.report_body_left{
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 400px;
+  position: absolute;
+  top: 6em;
+  left: 3em;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  background-color: grey;
+}
+
+.report_body_right{
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 800px;
+  position: absolute;
+  top: 6em;
+  left: 40em;
+  text-align: center;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  background-color: grey;
+}
+
+.report_header{
+  text-align: center;
+}
+
+.report_cell{
+  width: 50%;
+  text-align: center;
+  padding: 15px;
+}
+
+.report_box{
+  padding: 10px;
+  border:2px solid black;
+}
+
+.report_cell a{
+  color: black;
+  text-decoration: none;
+}
+
+.report_box:hover{
+  background-color: black;
+  border:2px solid white;
+  color: white;
+}
+
+.report_box:hover a{
+  color: white;
+}
+
+.small_img{
+  width:50px;
+  height: 50px;
+}
+
+.report_table_1{
+  margin-left: 120px;
+  color: black;
+}
+
+.report_table_5{
+  margin-left: 50px;
+  color: black;
+}
+
+
+.td_report_1{
+  padding: 10px;
+  padding-right: 15px;
+  color: black;
+}
+
+.report_table_2{
+  margin-left: 80px;
+  color: black;
+  width: 80%;
+}
+
+.report_table_5{
+  margin-left: 50px;
+  color: black;
+  width: 80%;
+}
+
+.report_table_4{
+  margin-left: 30px;
+  color: black;
+  width: 80%;
+}
+
+
+.td_report_2{
+  padding: 10px;
+  color: black;
+  float: right;
+}
+
+.td_report_3{
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+}
+
+.td_report_6{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 50px;
+  color: black;
+}
+
+.blank_td{
+  width:7em;
+}
+
+.song_name{
+  width: 100%;
+  font-size: 20px;
+  color: black;
+}
+
+.song_name1{
+  width: 100%;
+  font-size: 20px;
+  color: white;
+}
+
+.artist_name1{
+  width: 100%;
+  font-size: 13px;
+  color: lightgray;
+  padding-bottom: 5px;
+}
+
+.artist_name{
+  width: 100%;
+  font-size: 16px;
+  color: lightgray;
+}
+
+.djhome_body{
+  background-color: rgba(192, 192, 192,0.7);
+  width: 600px;
+  position: absolute;
+  top: 100px;
+  left: 400px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.index2_header{
+  padding-top: 40px;
+}
+
+.left_section{
+  background-color: rgba(220, 220, 220,0.9);
+  width: 500px;
+  height: 850px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+}
+
+.right_section{
+  background-color: rgba(220, 220, 220,0.9);
+  width: 500px;
+  height: 850px;
+  position: absolute;
+  top: 100px;
+  left: 850px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+}
+
+.top{
+  height: 600px;
+}
+
+.bottom{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.bottom1{
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.service-list{
+  padding-bottom: 15px;
+}
+
+.stop_party_button{
+  margin-top: 22px;
+}
